@@ -1,13 +1,8 @@
-import { spawn } from 'child_process';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-// Helper to get __dirname in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const { spawn } = require('child_process');
+const path = require('path');
 
 // Main controller to handle prediction
-export const getPrediction = (req, res) => {
+const getPrediction = (req, res) => {
   const { playerType, ...attributes } = req.body;
 
   let scriptPath = '';
@@ -68,3 +63,5 @@ export const getPrediction = (req, res) => {
     }
   });
 };
+
+module.exports = { getPrediction };
