@@ -1,0 +1,580 @@
+/* ==================== styles/careerPrediction.css ==================== */
+/* Create this file: src/styles/careerPrediction.css */
+
+.career-prediction-trigger {
+  text-align: center;
+  margin-top: 50px;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.predict-career-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 22px 65px;
+  font-size: 1.4rem;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.4s ease;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(255,107,107,0.4);
+}
+
+.btn-lightning {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: lightning 3s infinite;
+}
+
+@keyframes lightning {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.predict-career-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(255,107,107,0.6);
+}
+
+.career-trigger-subtitle {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  margin-top: 20px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Loading Animation */
+.career-loading {
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.loading-orb {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 40px;
+  position: relative;
+  animation: orbFloat 3s infinite ease-in-out;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.orb-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff6b6b, #ee5a6f);
+  box-shadow: 0 0 60px rgba(255,107,107,0.8);
+  animation: orbPulse 2s infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.orb-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #ff6b6b;
+  border-radius: 50%;
+  animation: ringExpand 2s infinite;
+}
+
+.ring-1 {
+  width: 110%;
+  height: 110%;
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 130%;
+  height: 130%;
+  animation-delay: 0.4s;
+}
+
+.ring-3 {
+  width: 150%;
+  height: 150%;
+  animation-delay: 0.8s;
+}
+
+@keyframes ringExpand {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+.loading-text {
+  font-size: 1.8rem;
+  color: #00ff88;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  animation: textGlow 1.5s infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(0,255,136,0.5); }
+  50% { text-shadow: 0 0 30px rgba(0,255,136,1); }
+}
+
+.loading-bars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.bar {
+  width: 8px;
+  height: 50px;
+  background: linear-gradient(180deg, #ff6b6b, #00ff88);
+  border-radius: 5px;
+  animation: barBounce 1s infinite ease-in-out;
+}
+
+@keyframes barBounce {
+  0%, 100% { height: 30px; }
+  50% { height: 60px; }
+}
+
+/* Career Prediction Container */
+.career-prediction-container {
+  max-width: 1400px;
+  margin: 50px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+  animation: fadeSlideUp 0.8s ease-out;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Career Header */
+.career-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header-icon {
+  display: inline-block;
+  color: #ff6b6b;
+  margin-bottom: 20px;
+  animation: iconSpin 20s linear infinite;
+}
+
+@keyframes iconSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.career-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 6px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ff6b6b, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.career-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.7);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Career Overview */
+.career-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.overview-card {
+  background: rgba(255,107,107,0.05);
+  backdrop-filter: blur(15px);
+  border: 3px solid rgba(255,107,107,0.3);
+  border-radius: 25px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.overview-card:hover {
+  transform: translateY(-10px);
+  border-color: #ff6b6b;
+  box-shadow: 0 20px 60px rgba(255,107,107,0.4);
+}
+
+.overview-icon {
+  color: #ff6b6b;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(255,107,107,0.6));
+}
+
+.overview-label {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+}
+
+.overview-value {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #ff6b6b;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 20px rgba(255,107,107,0.5);
+}
+
+.counter-value {
+  display: inline-block;
+  min-width: 100px;
+}
+
+/* Performance Section */
+.performance-section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #00ff88;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.stats-grid-career {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.stat-card-career {
+  background: rgba(0,255,136,0.03);
+  backdrop-filter: blur(15px);
+  border: 3px solid rgba(0,255,136,0.2);
+  border-radius: 25px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card-career::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,136,0.1), transparent);
+  animation: shimmerStat 3s infinite;
+}
+
+@keyframes shimmerStat {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.stat-card-career:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #00ff88;
+  box-shadow: 0 20px 60px rgba(0,255,136,0.3);
+}
+
+.stat-icon-wrapper {
+  color: #00ff88;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(0,255,136,0.6));
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+}
+
+.stat-value-career {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px rgba(0,255,136,0.5);
+}
+
+.stat-bar-career {
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: 10px;
+  animation: fillAnimation 2s ease-out;
+}
+
+@keyframes fillAnimation {
+  from { width: 0 !important; }
+}
+
+.goals-fill {
+  background: linear-gradient(90deg, #ff6b6b, #ff8787);
+  box-shadow: 0 0 20px rgba(255,107,107,0.6);
+}
+
+.assists-fill {
+  background: linear-gradient(90deg, #00d4ff, #00ffa3);
+  box-shadow: 0 0 20px rgba(0,212,255,0.6);
+}
+
+.cleansheets-fill {
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  box-shadow: 0 0 20px rgba(255,215,0,0.6);
+}
+
+/* Trophies Section */
+.trophies-section {
+  margin-bottom: 60px;
+}
+
+.trophies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.trophy-card {
+  background: rgba(255,215,0,0.05);
+  backdrop-filter: blur(15px);
+  border: 3px solid rgba(255,215,0,0.2);
+  border-radius: 25px;
+  padding: 40px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.trophy-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255,215,0,0.2), transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+}
+
+.trophy-card:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.trophy-card:hover {
+  transform: translateY(-15px) rotateY(5deg);
+  border-color: #ffd700;
+  box-shadow: 0 25px 70px rgba(255,215,0,0.4);
+}
+
+.trophy-icon {
+  color: #ffd700;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(255,215,0,0.7));
+  animation: trophyFloat 3s infinite ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes trophyFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.trophy-count {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #ffd700;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 15px;
+  text-shadow: 0 0 30px rgba(255,215,0,0.7);
+  position: relative;
+  z-index: 2;
+}
+
+.trophy-label {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 12px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.trophy-rarity {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+.trophy-card.ballon .trophy-rarity {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #0a0e27;
+}
+
+.trophy-card.league .trophy-rarity {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+}
+
+.trophy-card.ucl .trophy-rarity {
+  background: linear-gradient(135deg, #00d4ff, #00ffa3);
+  color: #0a0e27;
+}
+
+.trophy-card.worldcup .trophy-rarity {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  color: #fff;
+}
+
+/* Legacy Section */
+.legacy-section {
+  background: rgba(255,107,107,0.05);
+  backdrop-filter: blur(15px);
+  border: 3px solid rgba(255,107,107,0.2);
+  border-radius: 30px;
+  padding: 50px 40px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.legacy-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ff6b6b;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+.legacy-bar {
+  width: 100%;
+  height: 30px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  position: relative;
+  border: 2px solid rgba(255,107,107,0.3);
+}
+
+.legacy-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b, #ffd700, #00ff88, #00d4ff);
+  background-size: 200% 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255,107,107,0.6);
+  animation: legacyShine 3s infinite, fillAnimation 2s ease-out;
+}
+
+@keyframes legacyShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.legacy-text {
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.9);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .career-title {
+    font-size: 2.5rem;
+  }
+  
+  .stat-value-career {
+    font-size: 3rem;
+  }
+  
+  .trophy-count {
+    font-size: 3.5rem;
+  }
+  
+  .career-overview,
+  .stats-grid-career,
+  .trophies-grid {
+    grid-template-columns: 1fr;
+  }
+}

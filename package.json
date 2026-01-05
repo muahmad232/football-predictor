@@ -1,0 +1,21 @@
+{
+  "name": "fifa-prediction-app",
+  "version": "1.0.0",
+  "description": "FIFA Player Career Prediction Application",
+  "scripts": {
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "lucide-react": "^0.553.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
