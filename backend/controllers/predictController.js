@@ -14,8 +14,9 @@ const getPrediction = (req, res) => {
     return res.status(400).json({ error: 'Invalid playerType provided.' });
   }
 
-  // Use 'python' for Windows compatibility
-  const pythonProcess = spawn('python', [scriptPath]);
+  // Use 'python3' for Linux (Render) or 'python' for Windows
+  const pythonCommand = process.platform === 'win32' ? 'python' : 'python3';
+  const pythonProcess = spawn(pythonCommand, [scriptPath]);
 
   let resultData = '';
   let errorData = '';
