@@ -9,8 +9,18 @@ const predictRoutes = require('./routes/predictRoutes');
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+// CORS configuration - allow Vercel frontend and localhost
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://fifa-prediction.vercel.app',
+    /\.vercel\.app$/ // Allow all Vercel preview deployments
+  ],
+  credentials: true
+};
+
 // Middleware
-app.use(cors()); // Allow cross-origin requests from your React app
+app.use(cors(corsOptions));
 app.use(express.json()); // To parse JSON request bodies
 
 // --- API Routes ---
