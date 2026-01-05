@@ -3,24 +3,23 @@ services:
   - type: web
     name: fifa-prediction-backend
     runtime: node
-    buildCommand: cd backend && npm install && pip install -r ../requirements.txt
+    buildCommand: |
+      cd backend
+      npm install
+      pip3 install -r ../requirements.txt
     startCommand: cd backend && node server.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 5001
-    healthCheckPath: /
+    healthCheckPath: /health
 
   # Frontend Service
-  - type: web
+  - type: static
     name: fifa-prediction-frontend
-    runtime: node
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/build
     envVars:
       - key: REACT_APP_API_URL
-        fromService:
-          name: fifa-prediction-backend
-          type: web
-          property: host
+        value: https://fifa-prediction-backend.onrender.com
